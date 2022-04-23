@@ -3,3 +3,33 @@ Run something like `python -m SimpleHTTPServer` to get a server running for
 
 Then open `index.html` and check console output.
 
+Sample output from a few runs:
+
+About to start running
+speed-test.html:20 7633.599999904633 'Result from main linked across: ' 332975
+speed-test.html:25 6940.400000095367 'Result from main with sos inline: ' 332975
+
+About to start running
+speed-test.html:20 7754.300000190735 'Result from main linked across: ' 332975
+speed-test.html:25 7021.700000286102 'Result from main with sos inline: ' 332975
+
+
+Interestingly, different result w/browser console closed:
+
+About to start running
+speed-test.html:20 4313.900000095367 'Result from main linked across: ' 332975
+speed-test.html:25 4217 'Result from main with sos inline: ' 332975
+
+
+About to start running
+speed-test.html:20 4311.299999713898 'Result from main linked across: ' 332975
+speed-test.html:25 4233.5 'Result from main with sos inline: ' 332975
+
+
+Swapped order:
+
+About to start running
+speed-test.html:21 4229.199999809265 'Result from main with sos inline: ' 332975
+speed-test.html:25 4302.400000095367 'Result from main linked across: ' 332975
+
+
