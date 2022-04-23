@@ -3,7 +3,7 @@ Run something like `python -m SimpleHTTPServer` to get a server running for
 
 Then open `index.html` and check console output.
 
-Sample output from a few runs:
+Sample output from a few runs (on 2021 M1 Mac Mini).
 
 About to start running
 speed-test.html:20 7633.599999904633 'Result from main linked across: ' 332975
