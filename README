@@ -1,0 +1,5 @@
+Run something like `python -m SimpleHTTPServer` to get a server running for
+`fetch` to work
+
+Then open `index.html` and check console output.
+

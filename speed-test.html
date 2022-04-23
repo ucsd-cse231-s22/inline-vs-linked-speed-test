@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body></body>
+<script>
+async function start() {
+    const ssquaresOnlyModule = await fetch('ssquares.wasm').then(response => 
+      response.arrayBuffer()
+    ).then(bytes => WebAssembly.instantiate(bytes));
+    const mainOnlyModule = await fetch('ssquares-main-only.wasm').then(response => 
+      response.arrayBuffer()
+    ).then(bytes => WebAssembly.instantiate(bytes, { imports: { sos: ssquaresOnlyModule.instance.exports.sos } }));
+    const ssquaresMain = await fetch('ssquares-main.wasm').then(response => 
+      response.arrayBuffer()
+    ).then(bytes => WebAssembly.instantiate(bytes));
+
+    console.log("About to start running");
+
+    const start2 = window.performance.now();
+    const result2 = mainOnlyModule.instance.exports.mainOnly();
+    console.log(window.performance.now() - start2, "Result from main linked across: ", result2);
+
+
+    const start = window.performance.now();
+    const result = ssquaresMain.instance.exports.main();
+    console.log(window.performance.now() - start, "Result from main with sos inline: ", result);
+
+}
+start();
+</script>
+</html>
